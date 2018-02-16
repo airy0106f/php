@@ -30,6 +30,24 @@ class excel ectend PHPExcel{//excel入力のclass
       if($width<$wide){ onsk(); }else{ onbr(); }
   }
   
+  private function arraylong($hoge[]){
+    $tmp = $length;
+    foreach($hoge as $row){
+      $sheet->setCellValueByColumnAndRow($width, $length, $row);
+      $length++;
+    }
+    $length = $tmp;
+  }
+  
+  private function arraywide($hoge[]){
+    $tmp = $width;
+    foreach($hoge as $row){
+      $sheet->setCellValueByColumnAndRow($width, $length, $row);
+      $width++;
+    }
+    $width = $tmp;
+  }
+  
   private function jump($yoko,$tate){//指定の番地へジャンプする
     $width = $yoko;
     $length = $tate;
