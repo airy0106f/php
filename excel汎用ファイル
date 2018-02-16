@@ -1,0 +1,48 @@
+//必要文
+//PHPExcelファイルの読み込み
+include_once ( dirname(__FILE__) . '/Classes/PHPExcel.php');
+include_once ( dirname(__FILE__) . '/Classes/PHPExcel/IOFactory.php');
+
+//phpexcelclassの作成
+class excel ectend PHPExcel{//excel入力のclass
+  $sheet = getActiveSheet();
+  $num = 0;//シートナンバー
+  $width = 0;//横幅Aから
+  $length = 1;//縦が1から
+
+  private function onbr{//改行
+    $length++;
+    $width=0;
+  }  
+  private function onsk{//横にスキップ
+    $width++;
+  }
+  
+  private function oncode($str){//書き込みを行う！
+    $sheet->setCellValueByColumnAndRow($width, $length, $str);
+    $width++;
+  }
+  
+  private function arraybus($wide,$hoge[]){//横幅と配列を引数に取り配列の内容を一気に出力する
+    foreach($hoge as $row){
+      $sheet->setCellValueByColumnAndRow($width, $length, $row);
+      if($width<$wide){ onsk(); }else{ onbr(); }
+  }
+  
+  private function jump($yoko,$tate){//指定の番地へジャンプする
+    $width = $yoko;
+    $length = $tate;
+  }
+  
+  private function nextsheet($name){//次のシートを作成する
+    $num++;
+    $book->createSheet()->setTitle($name);
+    $book->getActiveSheet($num);
+  }
+  
+  private function export(){//出力
+    $writer2007 = PHPExcel_IOFactory::createWriter($book, 'Excel2007');
+    $writer2007->save('output/08-excel2007.xlsx');
+  }
+  
+}
