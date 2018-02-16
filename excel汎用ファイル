@@ -1,3 +1,4 @@
+<?php
 //必要文
 //PHPExcelファイルの読み込み
 include_once ( dirname(__FILE__) . '/Classes/PHPExcel.php');
@@ -44,5 +45,5 @@ class excel ectend PHPExcel{//excel入力のclass
     $writer2007 = PHPExcel_IOFactory::createWriter($book, 'Excel2007');
     $writer2007->save('output/08-excel2007.xlsx');
   }
-  
 }
+?>
