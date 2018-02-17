@@ -5,7 +5,7 @@ include_once ( dirname(__FILE__) . '/Classes/PHPExcel.php');
 include_once ( dirname(__FILE__) . '/Classes/PHPExcel/IOFactory.php');
 
 //phpexcelclassの作成
-class excel ectend PHPExcel{//excel入力のclass
+class excel ectends PHPExcel{//excel入力のclass
   $sheet = getActiveSheet();
   $num = 0;//シートナンバー
   $width = 0;//横幅Aから
@@ -30,13 +30,14 @@ class excel ectend PHPExcel{//excel入力のclass
       if($width<$wide){ onsk(); }else{ onbr(); }
   }
   
-  private function arraylong($hoge[]){
+  private function arraylong($hoge[]){//配列を縦に全て出力する。
     $tmp = $length;
     foreach($hoge as $row){
       $sheet->setCellValueByColumnAndRow($width, $length, $row);
       $length++;
     }
     $length = $tmp;
+    $width++;
   }
   
   private function arraywide($hoge[]){
@@ -46,6 +47,7 @@ class excel ectend PHPExcel{//excel入力のclass
       $width++;
     }
     $width = $tmp;
+    $length++;
   }
   
   private function jump($yoko,$tate){//指定の番地へジャンプする
