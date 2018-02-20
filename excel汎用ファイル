@@ -5,8 +5,8 @@ include_once ( dirname(__FILE__) . '/Classes/PHPExcel.php');
 include_once ( dirname(__FILE__) . '/Classes/PHPExcel/IOFactory.php');
 
 //phpexcelclassの作成
-class excel ectends PHPExcel{//excel入力のclass
-  $sheet = getActiveSheet();
+class excel{//excel入力のclass
+  $sheet = PHPExcel::getActiveSheet();
   $num = 0;//シートナンバー
   $width = 0;//横幅Aから
   $length = 1;//縦が1から
